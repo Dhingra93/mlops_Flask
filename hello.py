@@ -21,14 +21,16 @@ def predict():
      else :
          Married = 0
 
+     ''' 
      if loan_req['Dependents']== '3+':
-         Dependents = 3
+         Dependents = '3'
+     '''
 
      ApplicantIncome=loan_req['ApplicantIncome']
      LoanAmount=loan_req['LoanAmount']
      Credit_History=loan_req['Credit_History']
 
-     result=clf.predict('Gender','Married','Dependents','ApplicantIncome','LoanAmount','Credit_History')
+     result=clf.predict([[Gender,Married,ApplicantIncome,LoanAmount,Credit_History]])
 
      if result==0:
         result='Loan Approved'
